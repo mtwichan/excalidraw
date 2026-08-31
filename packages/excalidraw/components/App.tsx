@@ -5856,6 +5856,25 @@ class App extends React.Component<AppProps, AppState> {
       }
 
       if (
+        !event[KEYS.CTRL_OR_CMD] &&
+        event.shiftKey &&
+        (event.code === CODES.A || event.key.toLowerCase() === KEYS.A)
+      ) {
+        const selectedElements = this.scene.getSelectedElements(this.state);
+
+        if (selectedElements.some(isArrowElement)) {
+          const openPopup = event.altKey ? "startArrowhead" : "endArrowhead";
+
+          event.preventDefault();
+          event.stopPropagation();
+          this.setState((appState) => ({
+            openPopup: appState.openPopup === openPopup ? null : openPopup,
+          }));
+          return;
+        }
+      }
+
+      if (
         event[KEYS.CTRL_OR_CMD] &&
         (event.key === KEYS.BACKSPACE || event.key === KEYS.DELETE)
       ) {

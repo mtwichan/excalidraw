@@ -135,6 +135,8 @@
     "showStroke": "Show stroke color picker",
     "showBackground": "Show background color picker",
     "showFonts": "Show font picker",
+    "showStartArrowhead": "Show start arrowhead picker",
+    "showEndArrowhead": "Show end arrowhead picker",
     "toggleTheme": "Toggle light/dark theme",
     "theme": "Theme",
     "personalLib": "Personal Library",

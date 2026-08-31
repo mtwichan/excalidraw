@@ -447,6 +447,8 @@ export interface AppState {
     | "elementBackground"
     | "elementStroke"
     | "fontFamily"
+    | "startArrowhead"
+    | "endArrowhead"
     | "compactTextProperties"
     | "compactStrokeStyles"
     | "compactOtherProperties"
