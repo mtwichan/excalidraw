@@ -1924,6 +1924,16 @@ export const actionChangeArrowhead = register<{
             visibleSections={startArrowheadOptions.visibleSections}
             hiddenSections={startArrowheadOptions.hiddenSections}
             label="arrowhead_start"
+            open={appState.openPopup === "startArrowhead"}
+            onOpenChange={(open) => {
+              app.setAppState((appState) => ({
+                openPopup: open
+                  ? "startArrowhead"
+                  : appState.openPopup === "startArrowhead"
+                  ? null
+                  : appState.openPopup,
+              }));
+            }}
             value={getFormValue<Arrowhead | null>(
               elements,
               app,
@@ -1941,6 +1951,16 @@ export const actionChangeArrowhead = register<{
             visibleSections={endArrowheadOptions.visibleSections}
             hiddenSections={endArrowheadOptions.hiddenSections}
             label="arrowhead_end"
+            open={appState.openPopup === "endArrowhead"}
+            onOpenChange={(open) => {
+              app.setAppState((appState) => ({
+                openPopup: open
+                  ? "endArrowhead"
+                  : appState.openPopup === "endArrowhead"
+                  ? null
+                  : appState.openPopup,
+              }));
+            }}
             value={getFormValue<Arrowhead | null>(
               elements,
               app,

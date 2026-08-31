@@ -289,14 +289,25 @@ export function IconPicker<T>({
   visibleSections,
   hiddenSections,
   onChange,
+  open,
+  onOpenChange,
 }: {
   label: string;
   value: T;
   visibleSections: readonly PickerSection<T>[];
   hiddenSections?: readonly PickerSection<T>[];
   onChange: (value: T) => void;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }) {
-  const [isActive, setActive] = React.useState(false);
+  const [internalIsActive, setInternalIsActive] = React.useState(false);
+  const isActive = open ?? internalIsActive;
+  const setActive = (nextIsActive: boolean) => {
+    if (open === undefined) {
+      setInternalIsActive(nextIsActive);
+    }
+    onOpenChange?.(nextIsActive);
+  };
   const selectedOption = useMemo(
     () =>
       findOption(visibleSections, (option) => option.value === value) ??

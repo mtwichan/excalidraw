@@ -505,6 +505,14 @@ export const HelpDialog = ({ onClose }: { onClose?: () => void }) => {
               shortcuts={[getShortcutKey("Shift+F")]}
             />
             <Shortcut
+              label={t("labels.showEndArrowhead")}
+              shortcuts={[getShortcutKey("Shift+A")]}
+            />
+            <Shortcut
+              label={t("labels.showStartArrowhead")}
+              shortcuts={[getShortcutKey("Alt+Shift+A")]}
+            />
+            <Shortcut
               label={t("labels.decreaseFontSize")}
               shortcuts={[getShortcutKey("CtrlOrCmd+Shift+<")]}
             />
